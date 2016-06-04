@@ -14,6 +14,7 @@ namespace Computer
         /// 3. [封裝]增加Operation運算類別
         /// 4. 緊耦合和鬆耦合及工廠模式
         /// 5. 數字檢查及運算式檢查
+        /// 6. 輸入運算值計算出結果，利用堆疊方法
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -21,21 +22,27 @@ namespace Computer
             try
             {
                 string strResult = string.Empty;
-                Console.Write("請輸入數字：");
-                double douNumberA = isNumber(Console.ReadLine());
-                Console.Write("請輸入(+ - * / )：");
-                string strOperate = isOperate(Console.ReadLine());
-                Console.Write("請輸入數字：");
-                double strNumberB = isNumber(Console.ReadLine());
+                //Console.Write("請輸入數字：");
+                //double douNumberA = isNumber(Console.ReadLine());
+                //Console.Write("請輸入(+ - * / )：");
+                //string strOperate = isOperate(Console.ReadLine());
+                //Console.Write("請輸入數字：");
+                //double strNumberB = isNumber(Console.ReadLine());
 
-                Operation oper;
-                oper = OperationFactory.createOperate(strOperate);
-                oper.NumberA = douNumberA;
-                oper.NumberB = Convert.ToDouble(strNumberB);
-                double result = oper.GetResult();
+                //Operation oper;
+                //oper = OperationFactory.createOperate(strOperate);
+                //oper.NumberA = douNumberA;
+                //oper.NumberB = Convert.ToDouble(strNumberB);
+                //double result = oper.GetResult();
 
+                //strResult = Convert.ToString(result);
+                //Console.WriteLine("結果：" + strResult);
+
+                Console.Write("請輸入運算值：");
+                double result = Transfer.Excute(Console.ReadLine()); // "1-3/3+(2*2)-4"
                 strResult = Convert.ToString(result);
                 Console.WriteLine("結果：" + strResult);
+
                 Console.ReadKey();
             }
             catch (Exception ex)

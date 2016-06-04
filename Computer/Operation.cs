@@ -43,6 +43,7 @@ namespace Computer
             double result = 0d;
             return result;
         }
+
     }
 
     /// <summary>
@@ -90,4 +91,5 @@ namespace Computer
             return NumberA / NumberB;
         }
     }
+
 }
