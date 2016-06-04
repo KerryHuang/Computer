@@ -8,33 +8,44 @@ namespace Computer
 {
     class Program
     {
+        /// <summary>
+        /// 1. 完成簡易版計算機
+        /// 2. 重新命名變數，改用switch判斷strOperate，增加判斷除數不能為0
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.Write("請輸入數字：");
-            string A = Console.ReadLine();
+            string strNumberA = Console.ReadLine();
             Console.Write("請輸入(+ - * / )：");
-            string B = Console.ReadLine();
+            string strOperate = Console.ReadLine();
             Console.Write("請輸入數字：");
-            string C = Console.ReadLine();
-            string D = string.Empty;
+            string strNumberB = Console.ReadLine();
+            string strResult = string.Empty;
 
-            if (B.Equals("+"))
+            switch (strOperate)
             {
-                D = Convert.ToString(Convert.ToInt16(A) + Convert.ToInt16(C));
-            }
-            if (B.Equals("-"))
-            {
-                D = Convert.ToString(Convert.ToInt16(A) - Convert.ToInt16(C));
-            }
-            if (B.Equals("*"))
-            {
-                D = Convert.ToString(Convert.ToInt16(A) * Convert.ToInt16(C));
-            }
-            if (B.Equals("/"))
-            {
-                D = Convert.ToString(Convert.ToInt16(A) / Convert.ToInt16(C));
-            }
-            Console.WriteLine("結果：" + D);
+                case "+":
+                    strResult = Convert.ToString(Convert.ToInt16(strNumberA) + Convert.ToInt16(strNumberB));
+                    break;
+                case "-":
+                    strResult = Convert.ToString(Convert.ToInt16(strNumberA) - Convert.ToInt16(strNumberB));
+                    break;
+                case "*":
+                    strResult = Convert.ToString(Convert.ToInt16(strNumberA) * Convert.ToInt16(strNumberB));
+                    break;
+                case "/":
+                    if (!strNumberB.Equals("0"))
+                    {
+                        strResult = Convert.ToString(Convert.ToInt16(strNumberA) / Convert.ToInt16(strNumberB));
+                    }
+                    else
+                    {
+                        strResult = "除數不能為0";
+                    }
+                    break;
+            }            
+            Console.WriteLine("結果：" + strResult);
             Console.ReadKey();
         }
     }
